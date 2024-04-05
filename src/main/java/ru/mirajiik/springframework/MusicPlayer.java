@@ -1,11 +1,18 @@
 package ru.mirajiik.springframework;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
     private Music music;
     private String name;
     private Integer volume;
+
     // Constructors
-    public MusicPlayer(Music music) {
+    @Autowired
+    public MusicPlayer(@Qualifier("rockMusic") Music music) {
         this.music = music;
     }
     public MusicPlayer(){ }
